@@ -1,0 +1,6 @@
+DESCRIPTION="File type guesser"
+HOMEPAGE="http://darwinsys.com/file/"
+SRC_URI="ftp://ftp.astron.com/pub/file/${P}.tar.gz"
+PATCH_URI="ftp://ftp.astron.com/pub/file/patch-4.20-REG_STARTEND"
+
+CYGCONF_ARGS="--enable-fsect-man5 --enable-python"
