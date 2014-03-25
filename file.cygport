@@ -2,13 +2,14 @@ inherit python python3
 
 NAME="file"
 VERSION=5.17
-RELEASE=1
+RELEASE=2
 CATEGORY="Base"
 SUMMARY="Determines file type using 'magic' numbers"
 DESCRIPTION="With file you can obtain information on the file type of a specified
 file. File type recognition is controlled by the file /usr/share/file/magic
 which contains the classification criteria."
 SRC_URI="ftp://ftp.astron.com/pub/file/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="https://github.com/Alexpux/MSYS2-packages/raw/master/file/file-5.15-fix-regexp.patch"
 
 PKG_NAMES="${NAME} libmagic1 libmagic-common libmagic-devel python-magic python3-magic"
 file_CONTENTS="usr/bin/file.exe usr/share/doc/ usr/share/man/man1/"
