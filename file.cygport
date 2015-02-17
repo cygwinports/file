@@ -1,7 +1,7 @@
 inherit python python3
 
 NAME="file"
-VERSION=5.20
+VERSION=5.22
 RELEASE=1
 CATEGORY="Base"
 SUMMARY="Determines file type using 'magic' numbers"
@@ -10,7 +10,6 @@ file. File type recognition is controlled by the file /usr/share/file/magic
 which contains the classification criteria."
 HOMEPAGE="http://www.darwinsys.com/file/"
 SRC_URI="ftp://ftp.astron.com/pub/file/${NAME}-${VERSION}.tar.gz"
-PATCH_URI="http://pkgs.fedoraproject.org/cgit/file.git/plain/file-5.20-CVE-2014-3710.patch"
 
 PKG_NAMES="${NAME} file-devel python-magic python3-magic"
 file_CONTENTS="usr/bin/file.exe usr/bin/cygmagic-1.dll usr/share/doc/
