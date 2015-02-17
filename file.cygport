@@ -12,17 +12,16 @@ HOMEPAGE="http://www.darwinsys.com/file/"
 SRC_URI="ftp://ftp.astron.com/pub/file/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="https://github.com/Alexpux/MSYS2-packages/raw/master/file/file-5.15-fix-regexp.patch"
 
-PKG_NAMES="${NAME} libmagic1 libmagic-common libmagic-devel python-magic python3-magic"
-file_CONTENTS="usr/bin/file.exe usr/share/doc/ usr/share/man/man1/"
-libmagic1_REQUIRES="libmagic-common"
-libmagic1_CONTENTS="usr/bin/cygmagic-1.dll"
-libmagic_common_CONTENTS="usr/share/file/ usr/share/magic usr/share/misc/ usr/share/man/man5/"
-libmagic_devel_CONTENTS="usr/include/ usr/lib/lib* usr/share/man/man3/"
+PKG_NAMES="${NAME} file-devel python-magic python3-magic"
+file_CONTENTS="usr/bin/file.exe usr/bin/cygmagic-1.dll usr/share/doc/
+	usr/share/file/ usr/share/magic usr/share/man/man[15]/ usr/share/misc/"
+file_devel_CATEGORY="Devel"
+file_devel_CONTENTS="usr/include/ usr/lib/lib* usr/share/man/man3/"
 python_magic_CATEGORY="Python"
-python_magic_REQUIRES="libmagic-devel"  # ctypes.util.find_library('magic')
+python_magic_REQUIRES="file-devel"  # ctypes.util.find_library('magic')
 python_magic_CONTENTS=${PYTHON_SITELIB#/}
 python3_magic_CATEGORY="Python"
-python3_magic_REQUIRES="libmagic-devel"  # ctypes.util.find_library('magic')
+python3_magic_REQUIRES="file-devel"  # ctypes.util.find_library('magic')
 python3_magic_CONTENTS=${PYTHON3_SITELIB#/}
 
 CYGCONF_ARGS="--enable-fsect-man5"
