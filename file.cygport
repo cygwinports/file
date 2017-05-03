@@ -1,7 +1,7 @@
-inherit python python3
+inherit python2 python3
 
 NAME="file"
-VERSION=5.25
+VERSION=5.30
 RELEASE=1
 CATEGORY="Base"
 SUMMARY="Determines file type using 'magic' numbers"
@@ -11,14 +11,15 @@ which contains the classification criteria."
 HOMEPAGE="http://www.darwinsys.com/file/"
 SRC_URI="ftp://ftp.astron.com/pub/file/${NAME}-${VERSION}.tar.gz"
 
-PKG_NAMES="${NAME} file-devel python-magic python3-magic"
+PKG_NAMES="${NAME} file-devel python2-magic python3-magic"
 file_CONTENTS="usr/bin/file.exe usr/bin/cygmagic-1.dll usr/share/doc/
 	usr/share/file/ usr/share/magic usr/share/man/man[15]/ usr/share/misc/"
 file_devel_CATEGORY="Devel"
 file_devel_CONTENTS="usr/include/ usr/lib/lib* usr/share/man/man3/"
-python_magic_CATEGORY="Python"
-python_magic_REQUIRES="file-devel"  # ctypes.util.find_library('magic')
-python_magic_CONTENTS=${PYTHON_SITELIB#/}
+python2_magic_CATEGORY="Python"
+python2_magic_OBSOLETES="python-magic"
+python2_magic_REQUIRES="file-devel"  # ctypes.util.find_library('magic')
+python2_magic_CONTENTS=${PYTHON2_SITELIB#/}
 python3_magic_CATEGORY="Python"
 python3_magic_REQUIRES="file-devel"  # ctypes.util.find_library('magic')
 python3_magic_CONTENTS=${PYTHON3_SITELIB#/}
@@ -30,10 +31,8 @@ src_install() {
 	cyginstall
 
 	# install python bindings
-	dopython ${S}/python/magic.py
-	python_optimize
+	dopython2 ${S}/python/magic.py
 	dopython3 ${S}/python/magic.py
-	python3_optimize
 
 	# As on Fedora, create the magic file and the usual links to it.
 	set +x
