@@ -1,8 +1,8 @@
 inherit python python3
 
 NAME="file"
-VERSION=5.22
-RELEASE=2
+VERSION=5.25
+RELEASE=1
 CATEGORY="Base"
 SUMMARY="Determines file type using 'magic' numbers"
 DESCRIPTION="With file you can obtain information on the file type of a specified
